@@ -1,5 +1,15 @@
 import time
 import random
 def Fexintro():
-  print("
+  print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score."
+return none
+
+exscore = int(0)
+exuserinput = str(input())
+words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
+words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
+While exscore < 10 and exscore > 0:
+  print(random.choice(words1))
+  
+
   
