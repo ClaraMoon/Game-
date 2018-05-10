@@ -9,28 +9,31 @@ words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stan
 words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
 
 def exlvl1(exsuerinput):
+    exscore1 = int()
     a =  random.choice(words1)
     print(a)
     if exuserinput == a:
-        exscore += 2
+        exscore1 += 2
     else:
-        exscore -= 1
-return exscore
+        exscore1 -= 1
+return exscore1
     
 def exlvl2(exuserinput):
+    exscore2 = int()
     a =  random.choice(words1)
     print(a)
     if exuserinput == a:
-        exscore += 2
+        exscore2 += 2
     else:
-        exscore -= 1
-return exscore
+        exscore2 -= 1
+return exscore2
    
 def exlvl3(exuserinput):
+    exscore3 = int()
     b =  random.choice(words1)
     print(b)
     if exuserinput == b:
-      exscore += 2
+      exscore3 += 2
     else:
-      exscore -= 1
-return exscore
+      exscore3 -= 1
+return exscore3
