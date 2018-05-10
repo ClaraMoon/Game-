@@ -2,7 +2,6 @@ import time
 import random
 def Fexintro():
   print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score.")
-return none
 
 exuserinput = str(input())
 words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
@@ -37,3 +36,5 @@ def exlvl3(exuserinput):
     else:
       exscore3 -= 1
 return exscore3
+
+While
