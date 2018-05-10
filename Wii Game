@@ -1,14 +1,14 @@
 import time
 import random
 def Fexintro():
-  print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score."
+  print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score.")
 return none
 
 exuserinput = str(input())
 words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
 words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
 
-def exlvl1():
+def exlvl1(exsuerinput):
     a =  random.choice(words1)
     print(a)
     if exuserinput == a:
@@ -17,7 +17,7 @@ def exlvl1():
         exscore -= 1
 return exscore
     
-def exlvl2():
+def exlvl2(exuserinput):
     a =  random.choice(words1)
     print(a)
     if exuserinput == a:
@@ -26,7 +26,7 @@ def exlvl2():
         exscore -= 1
 return exscore
    
-def exlvl3():
+def exlvl3(exuserinput):
     b =  random.choice(words1)
     print(b)
     if exuserinput == b:
