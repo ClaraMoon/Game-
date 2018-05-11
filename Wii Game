@@ -3,34 +3,36 @@ import random
 def Fexintro():
   print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score.")
 
-exuserinput = str(input())
-words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
-words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
-
-def exlvl1(exsuerinput):
+def exlvl1():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
     exscore1 = int()
     a =  random.choice(words1)
     print(a)
+    exuserinput = str(input())
     if exuserinput == a:
         exscore1 += 2
     else:
         exscore1 -= 1
 return exscore1
     
-def exlvl2(exuserinput):
+def exlvl2():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
     exscore2 = int()
     a =  random.choice(words1)
     print(a)
+    exuserinput = str(input())
     if exuserinput == a:
         exscore2 += 2
     else:
         exscore2 -= 1
 return exscore2
    
-def exlvl3(exuserinput):
+def exlvl3():
+    words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
     exscore3 = int()
     b =  random.choice(words1)
     print(b)
+    exuserinput = str(input())
     if exuserinput == b:
       exscore3 += 2
     else:
