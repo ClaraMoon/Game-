@@ -5,7 +5,7 @@ def Fexintro():
 
 def exlvl1():
     words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
-    exscore1 = int()
+    exscore1 = int(0)
     a =  random.choice(words1)
     print(a)
     exuserinput = str(input())
@@ -13,11 +13,11 @@ def exlvl1():
         exscore1 += 2
     else:
         exscore1 -= 1
-return exscore1
+    return exscore1
     
 def exlvl2():
     words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick", "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble", "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
-    exscore2 = int()
+    exscore2 = int(0)
     a =  random.choice(words1)
     print(a)
     exuserinput = str(input())
@@ -25,18 +25,25 @@ def exlvl2():
         exscore2 += 2
     else:
         exscore2 -= 1
-return exscore2
+    return exscore2
    
 def exlvl3():
     words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe", "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke", "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah", "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
-    exscore3 = int()
-    b =  random.choice(words1)
+    exscore3 = int(0)
+    b =  random.choice(words2)
     print(b)
     exuserinput = str(input())
     if exuserinput == b:
       exscore3 += 2
-    else:
-      exscore3 -= 1
-return exscore3
+    return exscore3
 
-While
+totexscore = int(0)
+while totexscore <= 10:
+    totexscore += exlvl1()
+    print(totexscore)
+while totexscore > 10 and totexscore <= 20:
+    totexscore += exlvl2()
+    print(totexscore)
+while totexscore > 20:
+    totexscore += exlvl3()
+    print(totexscore)
