@@ -1,7 +1,7 @@
 import time
 import random
 def Fexintro():
-  print("To exercise, copy the action word on the screen. If you get it right, 2 points will be added to your score. However, if you get it wrong, one point will be deducted from your score.")
+  print("To exercise, copy the action word on the screen. If you get it right, 1 point will be added to your score. However, if you get it wrong, one point will be deducted from your score.")
 #The intro function for the exercise game, played before game starts
 
 def exlvl1():
