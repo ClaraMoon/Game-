@@ -1,0 +1,120 @@
+import pygame, sys
+import time
+import random
+pygame.init()
+red = (255,0,0)
+whites = (252, 252, 252)
+black = (3, 3, 3)
+
+SIZE = [1350, 720]
+screen = pygame.display.set_mode(SIZE)
+def Fexintro():
+    clock = pygame.time.Clock()
+
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render('Copy the word on screen exactly to get points. Good Luck!', True, black, (255, 255, 255))
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerx
+    textrect.centery = screen.get_rect().centery
+
+    screen.blit(text, textrect)
+    pygame.display.update()
+# The intro function for the exercise game, played before game starts
+
+def exlvl1():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick",
+              "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble",
+              "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
+    exscore1 = int(0)
+    a = random.choice(words1)
+    clock = pygame.time.Clock()
+
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render( a, True, black, (255, 255, 255))
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerx
+    textrect.centery = screen.get_rect().centery
+
+    screen.blit(text, textrect)
+    pygame.display.update()
+    exuserinput = str(input())
+    if exuserinput == a:
+        exscore1 += 2
+    else:
+        exscore1 -= 1
+    return exscore1
+# The function is for the first level of the exercise game
+# exscore1 is the score from the first level of game
+
+def exlvl2():
+    words1 = ["Run", "Walk", "stretCh", "jumP", "Jog", "DUck", "Hit", "cRawL", "sTaNd", "Sit", "swing", "PlaNk", "Kick",
+              "pUnCh", "cRunCh", "dOdge", "pAsS", "throw", "catch", "seRvE", "bOuNce", "bEnd", "shoot", "driBble",
+              "hOp", "skIp", "Kneel", "puSh", "pUll", "swIng", "lift", "sQuat"]
+    exscore2 = int(0)
+    a = random.choice(words1)
+    clock = pygame.time.Clock()
+
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render(a , True, black, (255, 255, 255))
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerx
+    textrect.centery = screen.get_rect().centery
+
+    screen.blit(text, textrect)
+    pygame.display.update()
+    exuserinput = str(input())
+    if exuserinput == a:
+        exscore2 += 2
+    else:
+        exscore2 -= 1
+    return exscore2
+# The funtion is for the second level of exercise game
+
+def exlvl3():
+    words2 = ["JumpinG Jack", "Duck and Roll", "SCREAM to your teamMate", "Deep Knee Bend and Breathe",
+              "Aerobic ExeRcises", "Dance to the Rhythm", "Dance to The rhythm with a Partner", "Butterfly Stroke",
+              "AggresSivEly Tackle your Opponent", "Row a canoe With a Paddle", "Outrun a cheetah!!!",
+              "Climb uP a tree to get Away from a Bear", "Lift legs up High to Climb the Mountain"]
+    exscore3 = int(0)
+    b = random.choice(words2)
+    print(b)
+    exuserinput = str(input())
+    if exuserinput == b:
+        exscore3 += 2
+    else:
+        exscore3 -= 1
+    return exscore3
+def game():
+    Fexintro()
+    totexscore = int(0)
+    while totexscore <= 10:
+        totexscore += exlvl1()
+        print(totexscore)
+    while totexscore > 10 and totexscore <= 20:
+        totexscore += exlvl2()
+        print(totexscore)
+    while totexscore > 20:
+        totexscore += exlvl3()
+        print(totexscore)
+
+b = 800
+timesec = 33
+totexscore = int(0)
+
+done = False
+while not done:  #main program loop
+    for event in pygame.event.get(): #user did something
+        if event.type==pygame.QUIT:  #if user clicked close
+             done = True             # flag to exit loop
+    if timesec != 0:
+        screen.fill(whites)               #set the screen background colour
+        Fexintro()
+        pygame.draw.rect(screen, red, [50, 50, b, 50])
+        b -= 25
+        pygame.display.flip()
+        timesec -= 1
+        time.sleep(1)
+    elif timesec == 0:
+        print("TIME'S UP!")
+        break
+
