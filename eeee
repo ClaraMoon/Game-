@@ -1,0 +1,79 @@
+import pygame, sys
+import time
+import random
+from pygame.locals import *
+
+pygame.init()
+red = (255,0,0)
+whites = (252, 252, 252)
+black = (3, 3, 3)
+
+SIZE = [1350, 720]
+screen = pygame.display.set_mode(SIZE)
+def Fexintro():
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render('Copy the word on screen exactly to get points. Good Luck!', True, black, (255, 255, 255))
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerxg
+    textrect.centery = screen.get_rect().centery
+    screen.blit(text, textrect)
+    pygame.display.update()
+# The intro function for the exercise game, played before game starts
+
+def exlvl1():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick",
+              "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble",
+              "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
+    exscore1 = int(0)
+    a = random.choice(words1)
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render( a, True, black, whites)
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerx
+    screen.blit(text, textrect)
+    if text== a:
+        exscore1 += 2
+    else:
+        exscore1 -= 1
+    return exscore1
+def text1(word,x,y):
+    font = pygame.font.SysFont(None, 25)
+    text = font.render("{}".format(word), True, whites)
+    return screen.blit(text,(x,y))
+def inpt():
+    word=""
+    text1("Please enter your name: ",300,400) #example asking name
+    pygame.display.flip()
+    done = True
+    while done:
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    word+=str(chr(event.key))
+                if event.key == pygame.K_b:
+                    word+=chr(event.key)
+                if event.key == pygame.K_c:
+                    word+=chr(event.key)
+                if event.key == pygame.K_d:
+                    word += chr(event.key)
+                if event.key == pygame.K_RETURN:
+                        done = False
+                return text1(word,700,30)
+
+# The function is for the first level of the exercise game
+# exscore1 is the score from the first level of game
+
+
+b = 800
+timesec = 33
+totexscore = int(0)
+
+done = False
+while not done:  #main program loop
+    for event in pygame.event.get(): #user did something
+        if event.type==pygame.QUIT:  #if user clicked close
+             done = True             # flag to exit loop
+    inpt()
