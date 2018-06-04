@@ -1,0 +1,186 @@
+totexscore = int(0)
+
+def exheadbody():
+    pygame.draw.circle(screen, skin, [650, 150], 100, 0)
+    pygame.draw.line(screen, skin, [650, 100], [650, 500], 30)
+    # The torso of the body
+
+
+def exfacehappy():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.arc(screen, black, [625, 150, 50, 50], math.pi, 0, 3)
+
+
+def exfacesad():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.arc(screen, black, [625, 150, 50, 50], 0, math.pi, 3)
+
+
+def exfacenorm():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.line(screen, black, [620, 175], [675, 175], 5)
+
+
+def exarms():
+    pygame.draw.line(screen, skin, [650, 250], [500, 400], 10)
+    pygame.draw.line(screen, skin, [650, 250], [800, 400], 10)
+    pygame.draw.circle(screen, skin, [500, 400], 20, 0)
+    pygame.draw.circle(screen, skin, [800, 400], 20, 0)
+    # Stick arms including the hands
+
+
+def exlegs():
+    pygame.draw.line(screen, skin, [645, 500], [600, 700], 20)
+    pygame.draw.line(screen, skin, [655, 500], [695, 700], 20)
+
+
+def exarmsup():
+    pygame.draw.line(screen, skin, [650, 300], [500, 200], 10)
+    pygame.draw.line(screen, skin, [650, 300], [800, 200], 10)
+    pygame.draw.circle(screen, skin, [500, 200], 20, 0)
+    pygame.draw.circle(screen, skin, [800, 200], 20, 0)
+
+
+def Fexintro():
+    intro = "To exercise, copy the action word on the screen. If you get it right, 1 point will be added to your score. However, if you get it wrong, one point will be deducted from your score."
+    pygame.font.init()  # you have to call this at the start,
+    # if you want to use this module.
+    myfont = pygame.font.SysFont('Comic Sans MS', 10)
+
+    textsurface = myfont.render(intro, False, (255, 0, 0))
+
+    screen.blit(textsurface, (0, 0))
+    pygame.display.flip()
+
+# The intro function for the exercise game, played before game starts
+
+def exlvl1():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick",
+              "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble",
+              "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
+    totexscore = int(0)
+    a = random.choice(words1)
+    screen = pygame.display.set_mode(SIZE)
+
+    pygame.font.init()  # you have to call this at the start,
+    # if you want to use this module.
+    myfont = pygame.font.SysFont('Comic Sans MS', 30)
+
+    textsurface = myfont.render(a, False, (255, 0, 0))
+
+    screen.blit(textsurface, (0, 0))
+    pygame.display.flip()
+    exuserinput = str(input())
+    if exuserinput == a:
+        totexscore += 2
+    else:
+        totexscore -= 1
+    return a
+
+
+# The function is for the first level of the exercise game
+# exscore1 is the score from the first level of game
+def exlvl2():
+    words1 = ["run", "walk", "stretch", "jump", "jog", "duck", "hit", "crawl", "stand", "sit", "swing", "plank", "kick",
+              "punch", "crunch", "dodge", "pass", "throw", "catch", "serve", "bounce", "bend", "shoot", "dribble",
+              "hop", "skip", "kneel", "push", "pull", "swing", "lift", "squat"]
+    exscore2 = int(0)
+    a = random.choice(words1)
+    print(a)
+    exuserinput = str(input())
+    if exuserinput == a:
+        exscore2 += 2
+    else:
+        exscore2 -= 1
+    return exscore2
+
+
+# The funtion is for the second level of exercise game
+
+def exlvl3():
+    words2 = ["jumping jack", "duck and roll", "scream to your teammate", "deep knee bend and breathe",
+              "aerobic exercises", "dance to the rhythm", "dance to the rhythm with a partner", "butterfly stroke",
+              "aggressively tackle your opponent", "row a canoe with a paddle", "outrun a cheetah",
+              "climb up a tree to get away from a bear", "lift legs up high to climb the mountain"]
+    exscore3 = int(0)
+    b = random.choice(words2)
+    print(b)
+    exuserinput = str(input())
+    if exuserinput == b:
+        exscore3 += 2
+    else:
+        exscore3 -= 1
+    return exscore3
+# The function for third level in exercise game
+
+input = ''
+for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                playing = False
+            if event.key == pygame.K_w:
+                input = input + "a"
+            if event.key == pygame.K_s:
+                input = input + "b"
+            if event.key == pygame.K_a:
+                input = input + "c"
+            if event.key == pygame.K_w:
+                input = input + "d"
+            if event.key == pygame.K_s:
+                input = input + "e"
+            if event.key == pygame.K_a:
+                input = input + "f"
+            if event.key == pygame.K_w:
+                input = input + "g"
+            if event.key == pygame.K_s:
+                input = input + "h"
+            if event.key == pygame.K_a:
+                input = input + "i"
+            if event.key == pygame.K_w:
+                input = input + "j"
+            if event.key == pygame.K_s:
+                input = input + "k"
+            if event.key == pygame.K_a:
+                input = input + "l"
+            if event.key == pygame.K_w:
+                input = input + "m"
+            if event.key == pygame.K_s:
+                input = input + "n"
+            if event.key == pygame.K_a:
+                input = input + "o"
+            if event.key == pygame.K_w:
+                input = input + "p"
+            if event.key == pygame.K_s:
+                input = input + "q"
+            if event.key == pygame.K_a:
+                input = input + "r"
+            if event.key == pygame.K_w:
+                input = input + "s"
+            if event.key == pygame.K_s:
+                input = input + "t"
+            if event.key == pygame.K_a:
+                input = input + "u"
+            if event.key == pygame.K_w:
+                input = input + "v"
+            if event.key == pygame.K_s:
+                input = input + "w"
+            if event.key == pygame.K_a:
+                input = input + "x"
+            if event.key == pygame.K_w:
+                input = input + "y"
+            if event.key == pygame.K_s:
+                input = input + "z"
+            if event.key == pygame.K_a:
+                input = input + " "
+
+done = False
+while not done:
+
+    for event in pygame.event.get():  # User did something
+        if event.type == pygame.QUIT:  # If user clicked close
+            done = True  # Flag that we are done so we exit this loop
+    exlvl1()
+pygame.display.flip()
