@@ -1,0 +1,48 @@
+import pygame
+import math
+pygame.init()
+skin = (255, 211, 155)
+whites = (252, 252, 252)
+black = (3, 3, 3)
+SIZE = [1350, 720]
+screen = pygame.display.set_mode(SIZE)
+screen.fill(black)
+
+def exheadbody():
+    pygame.draw.circle(screen, skin, [650, 150], 100, 0)
+    pygame.draw.line(screen, skin, [650, 100], [650,500],30)
+    #The torso of the body
+def exfacehappy():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.arc(screen, black,[625, 150, 50, 50], math.pi , 0, 3)
+def exfacesad():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.arc(screen, black, [625, 150, 50, 50], 0, math.pi, 3)
+def exfacenorm():
+    pygame.draw.circle(screen, black, [600, 150], 10, 0)
+    pygame.draw.circle(screen, black, [690, 150], 10, 0)
+    pygame.draw.line(screen, black, [620, 175], [675,175],5)
+def exarms():
+    pygame.draw.line(screen, skin, [650, 250], [500,400], 10)
+    pygame.draw.line(screen, skin, [650, 250], [800,400], 10)
+    pygame.draw.circle(screen, skin, [500,400], 20, 0)
+    pygame.draw.circle(screen, skin, [800,400], 20, 0)
+    #Stick arms including the hands
+def exarmsup():
+    pygame.draw.line(screen, skin, [650, 300], [500,200], 10)
+    pygame.draw.line(screen, skin, [650, 300], [800,200], 10)
+    pygame.draw.circle(screen, skin, [500,200], 20, 0)
+    pygame.draw.circle(screen, skin, [800,200], 20, 0)
+def exlegs():
+    pygame.draw.line(screen, skin, [645,500],[600,700],20)
+    pygame.draw.line(screen, skin, [655, 500], [695, 700], 20)
+
+
+exheadbody()
+exlegs()
+exarmsup()
+exfacehappy()
+pygame.display.flip()
+  
