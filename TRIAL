@@ -1,0 +1,30 @@
+import pygame
+from pygame.locals import *
+
+
+def userin():
+    pygame.init()
+    userin = ""
+    size = [1350, 720]
+    screen = pygame.display.set_mode(size)
+    font = pygame.font.Font(None, 50)
+    while True:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.unicode.isalpha():
+                    userin += event.unicode
+                elif event.key == K_BACKSPACE:
+                    userin = userin[:-1]
+                elif event.key == K_RETURN:
+                    userin = ""
+            elif event.type == QUIT:
+                return
+        screen.fill((252, 252, 252))
+        block = font.render(userin, True, (3, 3, 3))
+        rect = block.get_rect()
+        rect.center = screen.get_rect().center
+        screen.blit(block, rect)
+        pygame.display.flip()
+if __name__ == "__main__":
+    userin()
+
