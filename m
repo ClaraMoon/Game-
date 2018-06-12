@@ -1,10 +1,18 @@
+import pygame, sys
+import time
+import random
+
+pygame.init()
+red = (255,0,0)
+whites = (252, 252, 252)
+black = (3, 3, 3)
+
 SIZE = [1350, 720]
 screen = pygame.display.set_mode(SIZE)
 
-
 def Fexintro():
     basicfont = pygame.font.SysFont(None, 48)
-    text = basicfont.render('Copy the word on screen exactly to get points. Good Luck!', True, black, (255, 255, 255))
+    text = basicfont.render('Jump over the obstacles to get points. Good Luck!', True, black, (255, 255, 255))
     textrect = text.get_rect()
     textrect.centerx = screen.get_rect().centerx
     textrect.centery = screen.get_rect().centery
@@ -55,21 +63,20 @@ def exlvl1():
                 screen.blit(text, textrect)
             else:
                 print('no')
-        if  a == 'squat':
-            rightan = event.key == pygame.K_DOWN
-            if rightan == event.key == pygame.K_DOWN:
-                print('f')
-                basicfont = pygame.font.SysFont(None, 48)
-                text = basicfont.render(a, True, black, whites)
-                textrect = text.get_rect()
-                textrect.centerx = screen.get_rect().centerx
-                screen.blit(text, textrect)
-            else:
-                print('no')
+            if a == 'squat':
+                rightan = event.key == pygame.K_DOWN
+                if rightan == event.key == pygame.K_DOWN:
+                    print('f')
+                    basicfont = pygame.font.SysFont(None, 48)
+                    text = basicfont.render(a, True, black, whites)
+                    textrect = text.get_rect()
+                    textrect.centerx = screen.get_rect().centerx
+                    screen.blit(text, textrect)
+                else:
+                    print('no')
 
-
-# The function is for the first level of the exercise game
-# exscore1 is the score from the first level of game
+            # The function is for the first level of the exercise game
+            # exscore1 is the score from the first level of game
 def timer():
     font = pygame.font.SysFont('Comic Sans MS', 25)
     frame_count = pygame.time.get_ticks()
@@ -92,12 +99,45 @@ def timer():
 
 
 done = False
-while not done:  #main program loop
-    for event in pygame.event.get(): #user did something
-        if event.type==pygame.QUIT:  #if user clicked close
-             done = True             # flag to exit loop
+while not done:  # main program loop
+    for event in pygame.event.get():  # user did something
+        if event.type == pygame.QUIT:  # if user clicked close
+            done = True  # flag to exit loop
     screen.fill(whites)
-    exlvl1()
     timer()
-    pygame.display.flip()
+    squat = 'squat'
+    jump = 'jump'
+    left = 'left'
+    right = 'right'
+    words1 = [squat, jump, left, right]
+    a = random.choice(words1)
 
+    totexscore = int(0)
+    if totexscore <= 10:
+        basicfont = pygame.font.SysFont(None, 48)
+        text = basicfont.render(a, True, black, whites)
+        textrect = text.get_rect()
+        textrect.centerx = screen.get_rect().centerx
+        screen.blit(text, textrect)
+        time.sleep(-time.time()%1.5)
+        
+        events = pygame.event.get()
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                if a == 'left' and event.key == pygame.K_LEFT:
+                    print('h')
+                if a == 'left' and event.key != pygame.K_LEFT:
+                    print('no')
+                if a == 'right'and event.key == pygame.K_RIGHT:
+                    print('i')
+                if a == 'jump' and event.key != pygame.K_RIGHT:
+                    print('no')
+                if a == 'jump' and event.key == pygame.K_UP:
+                    print('k')
+                if a == 'jump' and event.key != pygame.K_UP:
+                    print('no')
+                if a == 'squat' and event.key == pygame.K_DOWN:
+                    print('f')
+                if a == 'squat' and event.key != pygame.K_DOWN:
+                    print('no')
+    pygame.display.flip()
