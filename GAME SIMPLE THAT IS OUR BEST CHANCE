@@ -1,1 +1,65 @@
+import pygame, sys
+import time
+import random
 
+pygame.init()
+red = (255,0,0)
+whites = (252, 252, 252)
+black = (3, 3, 3)
+
+SIZE = [1350, 720]
+screen = pygame.display.set_mode(SIZE)
+
+
+
+def Fexintro():
+    basicfont = pygame.font.SysFont(None, 48)
+    text = basicfont.render('Jump over the obstacles to get points. Good Luck!', True, black, (255, 255, 255))
+    textrect = text.get_rect()
+    textrect.centerx = screen.get_rect().centerx
+    textrect.centery = screen.get_rect().centery
+    screen.blit(text, textrect)
+    pygame.display.update()
+
+done = False
+while not done:  #main program loop
+    for event in pygame.event.get(): #user did something
+        if event.type==pygame.QUIT:  #if user clicked close
+             done = True             # flag to exit loop
+    screen.fill(whites)
+    font = pygame.font.SysFont('Comic Sans MS', 25)
+    frame_count = pygame.time.get_ticks()
+    frame_rate = 17
+    start_time = 1818
+    total_seconds = start_time - (frame_count // frame_rate)
+    if total_seconds < 0:
+        total_seconds = 0
+    minutes = total_seconds // 60
+    seconds = total_seconds % 60
+    output_string = "Time left: {}".format(minutes)
+    text = font.render(output_string, True, (0, 0, 0))
+    screen.blit(text, [50, 50])
+    frame_count += 1
+    while minutes == 0:
+        pygame.quit()
+
+    if minutes > 10:
+            ds = 5
+    if minutes < 10:
+            ds = 7
+    if minutes < 10:
+            ds = 10
+    totexscore = int(0)
+    counter = int(0)
+    if totexscore <= 10:
+        events = pygame.event.get()
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                while a == 'left':
+                    if a == 'left' and event.key == pygame.K_LEFT:
+                        totexscore -= 1
+                        print(totexscore)
+                    else:
+                        totexscore += 5
+                        print(totexscore)
+    pygame.display.flip()
