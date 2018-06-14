@@ -13,12 +13,11 @@ SIZE = [1350, 720]
 screen = pygame.display.set_mode(SIZE)
 
 
-def Fexintro():
-    basicfont = pygame.font.SysFont(None, 48)
-    text = basicfont.render('Jump over the obstacles to get points. Good Luck!', True, black, (255, 255, 255))
+def Fexintro(): #Shows instructions on game
+    basicfont = pygame.font.SysFont(None, 30)
+    text = basicfont.render('Press SPACE and try to do as many jumping jacks. Good Luck!', True, black, whites)
     textrect = text.get_rect()
     textrect.centerx = screen.get_rect().centerx
-    textrect.centery = screen.get_rect().centery
     screen.blit(text, textrect)
     pygame.display.update()
 
@@ -37,34 +36,33 @@ def exheadbodyup():
     pygame.draw.circle(screen, black, [600, 100], 10, 0)
     pygame.draw.circle(screen, black, [690, 100], 10, 0)
     pygame.draw.line(screen, black, [620, 125], [675,125],5)
+    #The face of body when space is pressed
 def exarms():
     pygame.draw.line(screen, skin, [650, 300], [500, 400], 10)
     pygame.draw.line(screen, skin, [650, 300], [800, 400], 10)
     pygame.draw.circle(screen, skin, [500, 400], 20, 0)
     pygame.draw.circle(screen, skin, [800, 400], 20, 0)
-    #Stick arms including the hands
+    #Stick arms including the hands when key_up
 def exarmsup():
     pygame.draw.line(screen, skin, [650, 350], [500, 200], 10)
     pygame.draw.line(screen, skin, [650, 350], [800, 200], 10)
     pygame.draw.circle(screen, skin, [500, 200], 20, 0)
     pygame.draw.circle(screen, skin, [800, 200], 20, 0)
+    #Stick arms including the hands when key_down
 def exlegs():
     pygame.draw.line(screen, skin, [645,500],[600,700],20)
     pygame.draw.line(screen, skin, [655, 500], [695, 700], 20)
+    #Stick legs when key_up
 def exlegsopen():
     pygame.draw.line(screen, skin, [645,500],[500,700],20)
     pygame.draw.line(screen, skin, [655, 500], [795, 700], 20)
-
-
-# The intro function for the exercise game, played before game starts
-
-
+    #Stick legs when key_down
 
 def timer():
     font = pygame.font.SysFont('Comic Sans MS', 25)
     frame_count = pygame.time.get_ticks()
     frame_rate = 17
-    start_time = 2200
+    start_time = 1950 #Set to 30 seconds
 
     total_seconds = start_time - (frame_count // frame_rate)
 
@@ -80,29 +78,66 @@ def timer():
     while minutes == 0:
         pygame.quit()
 
-totexscore = int(0)
-score = int(0)
+totexscore = int(0) # Total score count
+
 done = False
 while not done:  # main program loop
     for event in pygame.event.get():  # user did something
         if event.type == pygame.QUIT:  # if user clicked close
             done = True  # flag to exit loop
-        
 
         screen.fill(whites)
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                totexscore += 1
-                exheadbodyup()
-                exarmsup()
-                exlegsopen()
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_SPACE:
-                exheadbody()
-                exlegs()
-                exarms()
-        print(totexscore)
-                # Stick arms including the hands
+        timer()
 
+        # level 1 of game gives low points per key_down
+        if totexscore <= 15:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    totexscore += 0.25
+                    exheadbodyup()
+                    exarmsup()
+                    exlegsopen()
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    exheadbody()
+                    exlegs()
+                    exarms()
+
+        # level 2 of game gives medium points per key_down
+        if totexscore > 15 and totexscore <= 40:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    totexscore += 0.5
+                    exheadbodyup()
+                    exarmsup()
+                    exlegsopen()
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    exheadbody()
+                    exlegs()
+                    exarms()
+
+        # level 3 of game gives high points per key_down
+        if totexscore > 40:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    totexscore += 1
+                    exheadbodyup()
+                    exarmsup()
+                    exlegsopen()
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_SPACE:
+                    exheadbody()
+                    exlegs()
+                    exarms()
+
+        #Score tracker
+        font = pygame.font.SysFont('Comic Sans MS', 25)
+        output_string = "score: " + str(totexscore)
+        text = font.render(output_string, True, (0, 0, 0))
+        screen.blit(text, [50, 100])
+
+        #Instructions
+        Fexintro()
 
     pygame.display.flip()
